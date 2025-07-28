@@ -27,11 +27,11 @@ while True:
         prediction = model.predict(face)[0][0]
 
         if prediction < 0.5:
+            label = "NoMask"
+            color = (0, 0, 255)
+        else:
             label = "Mask"
             color = (0, 255, 0)
-        else:
-            label = "No Mask"
-            color = (0, 0, 255)
             
 
         cv2.rectangle(frame, (x, y), (x+w, y+h), color, 2)
